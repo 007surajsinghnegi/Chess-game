@@ -7,6 +7,10 @@ const chess= new Chess()
 export const gameSubject = new BehaviorSubject()
 
 export function initGame(){
+    const savedGame = localStorage.getItem('savedGame')
+    if (savedGame) {
+        chess.load(savedGame)
+    }
     updateGame()
 }
 
@@ -46,6 +50,7 @@ function updateGame(pendingPromotion){
         isGameOver,
         result: isGameOver? getGameResult(): null
     }
+    localStorage.setItem('savedGame', chess.fen())
     gameSubject.next(newGame)
 }
 
@@ -58,9 +63,9 @@ export function resetGame(){
 function getGameResult(){
     if (chess.in_checkmate()) {
         const winner = chess.turn() === "w" ? 'BLACK' : 'WHITE'
-        return `CHECKMATE - WINNER is ${winner}`
+        return `CHECKMATE -- WINNER is ${winner}`
     } else if (chess.in_draw()) {
-        let reason = '50 - MOVES - RULE'
+        let reason = '50 MOVES RULE'
         if (chess.in_stalemate()) {
             reason = 'STALEMATE'
         } else if (chess.in_threefold_repetition()) {

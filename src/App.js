@@ -21,15 +21,15 @@ function App() {
   return (
     <div className="container">
       {isGameOver && (
-        <h2 className="vertical-text">
+        <h2 className="text">
             Game Over
-            <button onClick={resetGame()}><span className="vertical-text">New Game</span></button>
+            <button onClick={resetGame()}><span className="text">New Game</span></button>
         </h2>
       )}
-      <div className="board-container">
+      <div className="board_container">
         <Board board={board}/>
       </div>
-      {result && <p className="vertical-text">{result}</p>}
+      {result && <p className="text">{result}</p>}
     </div>
   );
 }

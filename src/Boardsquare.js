@@ -24,7 +24,7 @@ function Boardsquare({piece , black , position}) {
         }
     })
     return (
-        <div className= 'board-square' ref={drop}>
+        <div className= 'board_square' ref={drop}>
             <Square black = {black}>
                 {promotion ? <Promote promotion={promotion}/> : piece ?  <Piece piece={piece} position={position} /> : null}
             </Square>

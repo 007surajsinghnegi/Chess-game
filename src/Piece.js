@@ -19,7 +19,7 @@ function Piece({ piece , position }) {
     return (
         <>
             <DragPreviewImage connect={preview} src={pieceImg}/>
-            <div className="piece-container" ref={drag} style={{opacity : isDragging ? 0:1}}>
+            <div className="piece_container" ref={drag} style={{opacity : isDragging ? 0:1}}>
                 <img src={pieceImg} />
             </div>
         </>

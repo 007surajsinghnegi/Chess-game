@@ -11,16 +11,16 @@ export default function Promote({
   return (
     <div className="board">
       {promotionPieces.map((p, i) => (
-        <div key={i} className="promote-square">
+        <div key={i} className="promote_square">
           <Square black={i % 3 === 0}>
             <div
-              className="piece-container"
+              className="piece_container"
               onClick={() => move(from, to, p)}
             >
               <img
                 src={require(`./assets/${p}_${color}.png`).default}
                 alt=""
-                className="piece cursor-pointer"
+                className="piece cursor_pointer"
               />
             </div>
           </Square>
